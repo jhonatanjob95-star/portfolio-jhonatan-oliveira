@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jhonatan Oliveira .dev | Sites que vendem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0f;
+  --bg2: #12121a;
+  --accent: #00ff9d;
+  --accent2: #7c3aed;
+  --text: #f0f0f5;
+  --muted: #a0a0b0;
+  --gold: #d4af37;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+h1,h2,h3, .logo { font-family: 'Space Grotesk', sans-serif; }
+.container { max-width:1100px; margin:0 auto; padding:0 20px; }
+
+header {
+  position:fixed; top:0; left:0; right:0;
+  background: rgba(10,10,15,.92);
+  backdrop-filter: blur(12px);
+  z-index:1000;
+  border-bottom:1px solid #222;
+  padding:14px 0;
+}
+.header-inner { display:flex; align-items:center; justify-content:space-between; }
+.logo { font-size:22px; font-weight:700; color:var(--accent); text-decoration:none; }
+nav a { color:var(--text); text-decoration:none; margin-left:28px; font-weight:500; font-size:15px; }
+nav a:hover { color:var(--accent); }
+.btn {
+  background:var(--accent);
+  color:#000;
+  padding:12px 26px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  border:none;
+  cursor:pointer;
+  transition:.3s;
+  display:inline-block;
+}
+.btn:hover { transform:translateY(-2px); filter:brightness(1.1); }
+.btn-outline { background:transparent; border:2px solid var(--accent); color:var(--accent); }
+.btn-outline:hover { background:var(--accent); color:#000; }
+
+.hero {
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding:120px 0 80px;
+  background: radial-gradient(circle at 30% 50%, #1a0a2e 0%, #0a0a0f 70%);
+}
+.hero-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:60px; align-items:center; }
+.hero h1 { font-size:clamp(42px, 6vw, 68px); line-height:1.05; margin-bottom:16px; }
+.hero h1 span { color:var(--accent); }
+.hero p { font-size:18px; color:var(--muted); margin-bottom:28px; max-width:480px; }
+.badges { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:28px; }
+.badge { background:#1a1a24; padding:8px 16px; border-radius:50px; font-size:13px; border:1px solid #2a2a3a; }
+.hero-photo {
+  width:320px; height:320px;
+  border-radius:50%;
+  object-fit:cover;
+  border:4px solid var(--accent);
+  box-shadow:0 0 40px rgba(0,255,157,.3), 0 0 80px rgba(124,58,237,.2);
+  margin:0 auto;
+  display:block;
+}
+
+section { padding:90px 0; }
+h2 { font-size:42px; text-align:center; margin-bottom:50px; }
+h2 span { color:var(--accent); }
+
+/* SIMULADOR */
+.sim-box {
+  background:var(--bg2);
+  border-radius:20px;
+  padding:36px;
+  max-width:680px;
+  margin:0 auto;
+  border:1px solid #222;
+}
+.sim-box select, .sim-box input[type=checkbox] + label {
+  display:block;
+  width:100%;
+  margin-bottom:14px;
+  padding:12px;
+  background:#0f0f16;
+  border:1px solid #333;
+  border-radius:10px;
+  color:#fff;
+}
+.options { display:flex; flex-wrap:wrap; gap:10px; margin:16px 0; }
+.options label {
+  background:#1a1a24;
+  padding:10px 16px;
+  border-radius:50px;
+  cursor:pointer;
+  border:1px solid #333;
+  font-size:14px;
+}
+.options input { display:none; }
+.options input:checked + label { background:var(--accent); color:#000; border-color:var(--accent); }
+.result {
+  background:#0f0f16;
+  padding:20px;
+  border-radius:12px;
+  margin-top:20px;
+  text-align:center;
+}
+.price { font-size:32px; color:var(--accent); font-weight:700; }
+
+/* PROJETOS */
+.projects-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
+  gap:24px;
+}
+.project-card {
+  background:var(--bg2);
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid #222;
+  transition:.3s;
+}
+.project-card:hover { transform:translateY(-6px); border-color:var(--accent); }
+.project-card img { height:180px; width:100%; object-fit:cover; background:#111; }
+.project-body { padding:20px; }
+.project-body h3 { margin-bottom:6px; }
+.project-body p { color:var(--muted); font-size:14px; margin-bottom:16px; }
+.empty-card {
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  height:280px; text-align:center; color:var(--muted);
+}
+
+/* COMO FUNCIONA */
+.steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:24px; }
+.step { background:var(--bg2); padding:28px; border-radius:16px; text-align:center; border:1px solid #222; }
+.step-num { font-size:32px; color:var(--accent); font-weight:700; margin-bottom:8px; }
+
+footer {
+  background:#050508;
+  padding:40px 0;
+  text-align:center;
+  border-top:1px solid #222;
+  color:var(--muted);
+}
+
+.whatsapp-float {
+  position:fixed; bottom:24px; right:24px;
+  width:60px; height:60px; background:#25d366;
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  box-shadow:0 8px 25px rgba(37,211,102,.4); z-index:999;
+  text-decoration:none;
+}
+.whatsapp-float:hover { transform:scale(1.1); }
+
+@media (max-width:768px) {
+  .hero-grid { grid-template-columns:1fr; text-align:center; }
+  .hero-photo { width:220px; height:220px; }
+  nav { display:none; }
+  .hero p { margin-left:auto; margin-right:auto; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a href="#" class="logo">Jhonatan Oliveira .dev</a>
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#como-funciona">Como Funciona</a>
+      <a href="#orcamento">Orçamento</a>
+    </nav>
+    <a href="#orcamento" class="btn">Quero um site</a>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="container hero-grid">
+    <div>
+      <div class="badges">
+        <div class="badge">Entrega em até 7 dias</div>
+        <div class="badge">Suporte direto no WhatsApp</div>
+      </div>
+      <h1>Eu crio sites que <span>vendem</span> por você.</h1>
+      <p>Olá, eu sou Jhonatan Oliveira. Crio sites rápidos, bonitos e que trazem clientes pelo WhatsApp para o seu negócio.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="#projetos" class="btn">Ver meus trabalhos</a>
+        <a href="#orcamento" class="btn btn-outline">Pedir orçamento</a>
+      </div>
+    </div>
+    <div>
+      <img src="assets/minha-foto.jpg" alt="Jhonatan Oliveira" class="hero-photo">
+    </div>
+  </div>
+</section>
+
+<section id="orcamento" style="background:#0d0d14;">
+  <div class="container">
+    <h2>Simulador de <span>Orçamento</span></h2>
+    <div class="sim-box">
+      <label>Tipo de negócio</label>
+      <select id="tipoNegocio">
+        <option value="hamburgueria">Hamburgueria</option>
+        <option value="barbearia">Barbearia</option>
+        <option value="loja">Loja</option>
+        <option value="clinica">Clínica</option>
+        <option value="outro">Outro</option>
+      </select>
+
+      <p style="margin:16px 0 8px;font-weight:500;">O que você quer no site?</p>
+      <div class="options">
+        <input type="checkbox" id="cardapio" value="Cardápio"><label for="cardapio">Cardápio</label>
+        <input type="checkbox" id="agendamento" value="Agendamento"><label for="agendamento">Agendamento</label>
+        <input type="checkbox" id="carrinho" value="Carrinho de compras"><label for="carrinho">Carrinho de compras</label>
+        <input type="checkbox" id="whatsapp" value="Botão de WhatsApp" checked><label for="whatsapp">Botão de WhatsApp</label>
+        <input type="checkbox" id="vendas" value="Página de vendas"><label for="vendas">Página de vendas</label>
+      </div>
+
+      <div class="result" id="result">
+        <div>Investimento estimado</div>
+        <div class="price" id="preco">R$ 1.490</div>
+        <div id="prazo" style="margin-top:6px;color:var(--muted);">Prazo: até 7 dias</div>
+        <button class="btn" style="margin-top:16px;" onclick="pedirSite()">Quero esse site</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projetos">
+  <div class="container">
+    <h2>Meus <span>Trabalhos</span></h2>
+    <div class="projects-grid">
+      <!-- ADICIONAR PROJETOS AQUI -->
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80" alt="Brasa & Sabor">
+        <div class="project-body">
+          <h3>Brasa & Sabor</h3>
+          <p>Hamburgueria — Cardápio + Carrinho + WhatsApp</p>
+          <a href="#" class="btn">Ver site funcionando</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=600&q=80" alt="Barbearia">
+        <div class="project-body">
+          <h3>Barbearia Corte Fino</h3>
+          <p>Agendamento Online</p>
+          <a href="#" class="btn">Ver site funcionando</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80" alt="Loja">
+        <div class="project-body">
+          <h3>Loja Exemplo</h3>
+          <p>Catálogo + Carrinho</p>
+          <a href="#" class="btn">Ver site funcionando</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="empty-card">
+          <div style="font-size:40px;margin-bottom:10px;">+</div>
+          <strong>Em breve</strong>
+          <p>Seu projeto aqui</p>
+          <a href="#orcamento" class="btn" style="margin-top:12px;">Quero o meu aqui</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="empty-card">
+          <div style="font-size:40px;margin-bottom:10px;">+</div>
+          <strong>Em breve</strong>
+          <p>Seu projeto aqui</p>
+          <a href="#orcamento" class="btn" style="margin-top:12px;">Quero o meu aqui</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="empty-card">
+          <div style="font-size:40px;margin-bottom:10px;">+</div>
+          <strong>Em breve</strong>
+          <p>Seu projeto aqui</p>
+          <a href="#orcamento" class="btn" style="margin-top:12px;">Quero o meu aqui</a>
+        </div>
+      </div>
+      <!-- FIM DOS PROJETOS -->
+    </div>
+  </div>
+</section>
+
+<section id="como-funciona" style="background:#0d0d14;">
+  <div class="container">
+    <h2>Como <span>funciona</span></h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Conversa</h3>
+        <p>Me conta sobre o seu negócio no WhatsApp.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Criação</h3>
+        <p>Eu desenvolvo o site focado em trazer clientes.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Entrega</h3>
+        <p>Site no ar em até 7 dias + suporte direto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <strong>Jhonatan Oliveira .dev</strong><br>
+    Sites que vendem para comércios locais<br>
+    <small>Osasco, SP • WhatsApp (11) 96068-7917</small>
+  </div>
+</footer>
+
+<a href="https://wa.me/5511960687917?text=Ol%C3%A1%20Jhonatan%2C%20quero%20um%20site%20para%20o%20meu%20neg%C3%B3cio" class="whatsapp-float" target="_blank">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+function calcular() {
+  let preco = 990;
+  const checks = document.querySelectorAll('.options input:checked');
+  checks.forEach(c => {
+    if (c.value.includes('Cardápio')) preco += 200;
+    if (c.value.includes('Agendamento')) preco += 350;
+    if (c.value.includes('Carrinho')) preco += 450;
+    if (c.value.includes('Página')) preco += 300;
+  });
+  document.getElementById('preco').textContent = 'R$ ' + preco.toLocaleString('pt-BR');
+  document.getElementById('prazo').textContent = 'Prazo: até 7 dias';
+}
+
+document.querySelectorAll('.options input, #tipoNegocio').forEach(el => {
+  el.addEventListener('change', calcular);
+});
+calcular();
+
+function pedirSite() {
+  const tipo = document.getElementById('tipoNegocio').selectedOptions[0].text;
+  const itens = [...document.querySelectorAll('.options input:checked')].map(i => i.value).join(', ');
+  const preco = document.getElementById('preco').textContent;
+  const msg = `Olá Jhonatan, quero um site para ${tipo}.\nItens: ${itens || 'básico'}\nOrçamento estimado: ${preco}`;
+  window.open(`https://wa.me/5511960687917?text=${encodeURIComponent(msg)}`, '_blank');
+}
+</script>
+</body>
+</html>
