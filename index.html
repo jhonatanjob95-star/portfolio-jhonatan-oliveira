@@ -69,11 +69,12 @@ nav a:hover { color:var(--accent); }
 .badges { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:28px; }
 .badge { background:#1a1a24; padding:8px 16px; border-radius:50px; font-size:13px; border:1px solid #2a2a3a; }
 .hero-photo {
-  width:320px; height:320px;
+  width:340px; height:340px;
   border-radius:50%;
   object-fit:cover;
+  object-position: center 20%;
   border:4px solid var(--accent);
-  box-shadow:0 0 40px rgba(0,255,157,.3), 0 0 80px rgba(124,58,237,.2);
+  box-shadow:0 0 50px rgba(0,255,157,.4), 0 0 100px rgba(124,58,237,.25);
   margin:0 auto;
   display:block;
 }
@@ -168,7 +169,7 @@ footer {
 
 @media (max-width:768px) {
   .hero-grid { grid-template-columns:1fr; text-align:center; }
-  .hero-photo { width:220px; height:220px; }
+  .hero-photo { width:240px; height:240px; }
   nav { display:none; }
   .hero p { margin-left:auto; margin-right:auto; }
 }
