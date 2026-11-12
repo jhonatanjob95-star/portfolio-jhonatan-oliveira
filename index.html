@@ -231,7 +231,11 @@ footer {
         <div style="display:inline-block;background:#2a1d08;color:#f4c95d;padding:5px 14px;border:1px solid #8a6820;border-radius:30px;font-size:12px;font-weight:700;letter-spacing:1px;margin-bottom:8px;">🔥 OFERTA ESPECIAL</div>
         <div>De <span style="color:#a0a0b0;text-decoration:line-through;">R$ 990,00</span> por</div>
         <div class="price" id="preco">R$ 690,00</div>
-        <div id="prazo" style="margin-top:6px;color:var(--muted);">Prazo: até 7 dias</div>
+        <div style="margin-top:14px;padding:12px;background:#10251f;border:1px solid #28745c;border-radius:10px;">
+          <div style="color:#7de0b5;font-size:12px;font-weight:700;letter-spacing:1px;">🌿 OFERTA DE MANUTENÇÃO MENSAL</div>
+          <div style="margin-top:5px;">De <span style="color:#a0a0b0;text-decoration:line-through;">R$ 69,90</span> por <strong style="color:#7de0b5;font-size:22px;">R$ 49,90/mês</strong></div>
+        </div>
+        <div id="prazo" style="margin-top:10px;color:var(--muted);">Prazo: até 7 dias</div>
         <button class="btn" style="margin-top:16px;" onclick="pedirSite()">Quero esse site</button>
       </div>
     </div>
@@ -364,7 +368,7 @@ function pedirSite() {
   }
   const itens = [...document.querySelectorAll('.options input:checked')].map(i => i.value).join(', ');
   const preco = document.getElementById('preco').textContent;
-  const msg = `Olá Jhonatan! Quero um site para o meu negócio: ${tipo}.\nFuncionalidades desejadas: ${itens || 'Ainda quero conversar sobre isso'}\nOrçamento estimado: ${preco}`;
+  const msg = `Olá Jhonatan! Quero um site para o meu negócio: ${tipo}.\nFuncionalidades desejadas: ${itens || 'Ainda quero conversar sobre isso'}\nOrçamento estimado do site: ${preco}\nManutenção mensal (oferta): de R$ 69,90 por R$ 49,90/mês`;
   window.open(`https://wa.me/5511960687917?text=${encodeURIComponent(msg)}`, '_blank');
 }
 </script>
