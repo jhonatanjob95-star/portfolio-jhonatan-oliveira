@@ -148,7 +148,22 @@ h2 span { color:var(--accent); }
 .project-card { background:linear-gradient(155deg,rgba(25,25,37,.98),rgba(13,13,20,.98)); border-radius:20px; overflow:hidden; border:1px solid var(--line); transition:transform .28s,border-color .28s,box-shadow .28s; }
 .project-card:hover { box-shadow:0 18px 50px rgba(0,0,0,.3); }
 .project-card:hover { transform:translateY(-6px); border-color:var(--accent); }
-.project-card img { display:block; height:240px; width:100%; object-fit:contain; object-position:center; background:#111; padding:8px; }
+.project-card img {
+  display:block;
+  width:100%;
+  height:260px;
+  margin-inline:auto;
+  box-sizing:border-box;
+  object-fit:contain;
+  object-position:50% 50%;
+  background:#111;
+  padding:12px;
+}
+/* PRÉVIAS DOS PROJETOS: CENTRALIZADAS E SEM CORTE */
+.project-card img { object-fit:contain; object-position:center center; }
+@media (max-width:600px) {
+  .project-card img { height:220px; padding:10px; }
+}
 .project-body { padding:20px; }
 .project-body h3 { margin-bottom:6px; }
 .project-body p { color:var(--muted); font-size:14px; margin-bottom:16px; }
@@ -305,7 +320,7 @@ footer {
     <div class="projects-grid">
       <!-- ADICIONAR PROJETOS AQUI -->
       <div class="project-card">
-        <img src="https://image.thum.io/get/width/1200/crop/700/https://jhonatanjob95-star.github.io/brasa-e-sabor/" alt="Prévia completa do site Brasa & Sabor" loading="lazy" decoding="async">
+        <img src="https://image.thum.io/get/width/1200/crop/900/maxAge/0/https://jhonatanjob95-star.github.io/brasa-e-sabor/" alt="Prévia completa do site Brasa & Sabor" loading="lazy" decoding="async">
         <div class="project-body">
           <h3>Brasa & Sabor</h3>
           <p>Hamburgueria — Cardápio + Carrinho + WhatsApp</p>
@@ -314,7 +329,7 @@ footer {
       </div>
 
       <div class="project-card">
-        <img src="https://image.thum.io/get/width/1200/crop/700/https://jhonatanjob95-star.github.io/Barbearia/" alt="Prévia completa do site Novo Estilo Barbearia" loading="lazy" decoding="async">
+        <img src="https://image.thum.io/get/width/1200/crop/900/maxAge/0/https://jhonatanjob95-star.github.io/Barbearia/" alt="Prévia completa do site Novo Estilo Barbearia" loading="lazy" decoding="async">
         <div class="project-body">
           <h3>Novo Estilo Barbearia</h3>
           <p>Agendamento Online</p>
@@ -323,7 +338,7 @@ footer {
       </div>
 
       <div class="project-card">
-        <img src="https://image.thum.io/get/width/1200/crop/700/https://jhonatanjob95-star.github.io/Luiza-Gabriel/" alt="Prévia completa do site LuizaGabriel Calçados" loading="lazy" decoding="async">
+        <img src="https://image.thum.io/get/width/1200/crop/900/maxAge/0/https://jhonatanjob95-star.github.io/Luiza-Gabriel/" alt="Prévia completa do site LuizaGabriel Calçados" loading="lazy" decoding="async">
         <div class="project-body">
           <h3>LuizaGabriel Calçados</h3>
           <p>Catálogo + Carrinho</p>
@@ -332,7 +347,7 @@ footer {
       </div>
 
       <div class="project-card">
-        <img src="https://image.thum.io/get/width/1200/crop/700/https://jhonatanjob95-star.github.io/seu-time-fc-v2/" alt="Prévia completa do site Seu Time F.C." loading="lazy" decoding="async">
+        <img src="https://image.thum.io/get/width/1200/crop/900/maxAge/0/https://jhonatanjob95-star.github.io/seu-time-fc-v2/" alt="Prévia completa do site Seu Time F.C." loading="lazy" decoding="async">
         <div class="project-body">
           <h3>Seu Time F.C.</h3>
           <p>Site oficial do clube — Elenco e notícias</p>
