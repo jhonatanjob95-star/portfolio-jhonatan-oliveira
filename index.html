@@ -214,14 +214,9 @@ footer {
   <div class="container">
     <h2>Simulador de <span>Orçamento</span></h2>
     <div class="sim-box">
-      <label>Tipo de negócio</label>
-      <select id="tipoNegocio">
-        <option value="hamburgueria">Hamburgueria</option>
-        <option value="barbearia">Barbearia</option>
-        <option value="loja">Loja</option>
-        <option value="clinica">Clínica</option>
-        <option value="outro">Outro</option>
-      </select>
+      <label for="tipoNegocio">Qual é o seu tipo de negócio?</label>
+      <input id="tipoNegocio" type="text" placeholder="Ex.: hamburgueria, barbearia, loja..." required
+        style="display:block;width:100%;margin:10px 0 14px;padding:12px;background:#0f0f16;border:1px solid #333;border-radius:10px;color:#fff;font:inherit;">
 
       <p style="margin:16px 0 8px;font-weight:500;">O que você quer no site?</p>
       <div class="options">
@@ -361,10 +356,15 @@ document.querySelectorAll('.options input, #tipoNegocio').forEach(el => {
 calcular();
 
 function pedirSite() {
-  const tipo = document.getElementById('tipoNegocio').selectedOptions[0].text;
+  const tipo = document.getElementById('tipoNegocio').value.trim();
+  if (!tipo) {
+    document.getElementById('tipoNegocio').focus();
+    alert('Por favor, informe o tipo do seu negócio.');
+    return;
+  }
   const itens = [...document.querySelectorAll('.options input:checked')].map(i => i.value).join(', ');
   const preco = document.getElementById('preco').textContent;
-  const msg = `Olá Jhonatan, quero um site para ${tipo}.\nItens: ${itens || 'básico'}\nOrçamento estimado: ${preco}`;
+  const msg = `Olá Jhonatan! Quero um site para o meu negócio: ${tipo}.\nFuncionalidades desejadas: ${itens || 'Ainda quero conversar sobre isso'}\nOrçamento estimado: ${preco}`;
   window.open(`https://wa.me/5511960687917?text=${encodeURIComponent(msg)}`, '_blank');
 }
 </script>
