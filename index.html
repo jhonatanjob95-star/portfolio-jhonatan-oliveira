@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sites profissionais para comércios locais. Conheça os projetos de Jhonatan Oliveira e solicite um orçamento pelo WhatsApp.">
+<meta name="theme-color" content="#0a0a0f">
 <title>Jhonatan Oliveira .dev | Sites que vendem</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -35,7 +37,9 @@ header {
   border-bottom:1px solid #222;
   padding:14px 0;
 }
-.header-inner { display:flex; align-items:center; justify-content:space-between; }
+.header-inner { display:flex; align-items:center; justify-content:space-between; gap:18px; }
+.menu-toggle { display:none; width:44px; height:44px; border:1px solid #333; border-radius:12px; background:#12121a; color:var(--text); font-size:23px; cursor:pointer; }
+.menu-toggle:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
 .logo { font-size:22px; font-weight:700; color:var(--accent); text-decoration:none; }
 nav a { color:var(--text); text-decoration:none; margin-left:28px; font-weight:500; font-size:15px; }
 nav a:hover { color:var(--accent); }
@@ -125,7 +129,7 @@ h2 span { color:var(--accent); }
 /* PROJETOS */
 .projects-grid {
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
+  grid-template-columns:repeat(auto-fit, minmax(min(100%, 300px),1fr));
   gap:24px;
 }
 .project-card {
@@ -136,7 +140,7 @@ h2 span { color:var(--accent); }
   transition:.3s;
 }
 .project-card:hover { transform:translateY(-6px); border-color:var(--accent); }
-.project-card img { display:block; height:210px; width:100%; object-fit:contain; object-position:center; background:#111; }
+.project-card img { display:block; height:240px; width:100%; object-fit:contain; object-position:center; background:#111; padding:8px; }
 .project-body { padding:20px; }
 .project-body h3 { margin-bottom:6px; }
 .project-body p { color:var(--muted); font-size:14px; margin-bottom:16px; }
@@ -166,13 +170,32 @@ footer {
   text-decoration:none;
 }
 .whatsapp-float:hover { transform:scale(1.1); }
+.whatsapp-float:focus-visible { outline:3px solid #fff; outline-offset:4px; }
+.price-note { color:var(--muted); font-size:13px; margin-top:8px; }
+.project-card .btn { min-height:44px; text-align:center; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } *, *::before, *::after { transition:none !important; animation:none !important; } }
 
 @media (max-width:768px) {
-  .hero-grid { grid-template-columns:1fr; text-align:center; }
-  .hero-photo { width:240px; height:240px; }
-  nav { display:none; }
-  .hero p { margin-left:auto; margin-right:auto; }
+  header { padding:10px 0; }
+  .header-inner { flex-wrap:wrap; }
+  .logo { font-size:18px; }
+  .menu-toggle { display:inline-flex; align-items:center; justify-content:center; margin-left:auto; }
+  .header-inner > .btn { padding:10px 16px; font-size:13px; }
+  nav { display:none; position:absolute; top:100%; left:0; right:0; padding:14px 20px 20px; background:rgba(10,10,15,.98); border-bottom:1px solid #222; }
+  nav.open { display:flex; flex-direction:column; gap:4px; }
+  nav a { margin:0; padding:12px 8px; }
+  .hero { min-height:auto; padding:135px 0 70px; }
+  .hero-grid { grid-template-columns:1fr; text-align:center; gap:34px; }
+  .hero-photo { width:min(240px, 70vw); height:min(240px, 70vw); }
+  .hero p { margin-left:auto; margin-right:auto; font-size:16px; }
+  .badges { justify-content:center; }
+  h2 { font-size:34px; margin-bottom:34px; }
+  section { padding:70px 0; }
+  .sim-box { padding:22px 18px; }
+  .project-card img { height:220px; }
+  .whatsapp-float { width:54px; height:54px; right:16px; bottom:16px; }
 }
+@media (max-width:380px) { .header-inner > .btn { display:none; } .hero h1 { font-size:40px; } }
 </style>
 </head>
 <body>
@@ -180,7 +203,8 @@ footer {
 <header>
   <div class="container header-inner">
     <a href="#" class="logo">Jhonatan Oliveira .dev</a>
-    <nav>
+    <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal" onclick="toggleMenu()">☰</button>
+    <nav id="menu-principal">
       <a href="#inicio">Início</a>
       <a href="#projetos">Projetos</a>
       <a href="#como-funciona">Como Funciona</a>
@@ -229,8 +253,9 @@ footer {
 
       <div class="result" id="result">
         <div style="display:inline-block;background:#2a1d08;color:#f4c95d;padding:5px 14px;border:1px solid #8a6820;border-radius:30px;font-size:12px;font-weight:700;letter-spacing:1px;margin-bottom:8px;">🔥 OFERTA ESPECIAL</div>
-        <div>De <span style="color:#a0a0b0;text-decoration:line-through;">R$ 990,00</span> por</div>
+        <div style="color:var(--muted);font-size:13px;">INVESTIMENTO ESTIMADO</div>
         <div class="price" id="preco">R$ 690,00</div>
+        <div class="price-note">Valor inicial de R$ 690,00. Funcionalidades adicionais são somadas ao orçamento.</div>
         <div style="margin-top:14px;padding:12px;background:#10251f;border:1px solid #28745c;border-radius:10px;">
           <div style="color:#7de0b5;font-size:12px;font-weight:700;letter-spacing:1px;">🌿 OFERTA DE MANUTENÇÃO MENSAL</div>
           <div style="margin-top:5px;">De <span style="color:#a0a0b0;text-decoration:line-through;">R$ 69,90</span> por <strong style="color:#7de0b5;font-size:22px;">R$ 49,90/mês</strong></div>
@@ -248,7 +273,7 @@ footer {
     <div class="projects-grid">
       <!-- ADICIONAR PROJETOS AQUI -->
       <div class="project-card">
-        <img src="https://image.thum.io/get/width/1200/crop/700/https://jhonatanjob95-star.github.io/brasa-e-sabor/" alt="Prévia do site Brasa & Sabor" loading="lazy">
+        <img src="https://image.thum.io/get/width/1200/crop/700/https://jhonatanjob95-star.github.io/brasa-e-sabor/" alt="Prévia completa do site Brasa & Sabor" loading="lazy" decoding="async">
         <div class="project-body">
           <h3>Brasa & Sabor</h3>
           <p>Hamburgueria — Cardápio + Carrinho + WhatsApp</p>
@@ -257,7 +282,7 @@ footer {
       </div>
 
       <div class="project-card">
-        <img src="https://image.thum.io/get/width/1200/crop/700/https://jhonatanjob95-star.github.io/Barbearia/" alt="Prévia do site Novo Estilo Barbearia" loading="lazy">
+        <img src="https://image.thum.io/get/width/1200/crop/700/https://jhonatanjob95-star.github.io/Barbearia/" alt="Prévia completa do site Novo Estilo Barbearia" loading="lazy" decoding="async">
         <div class="project-body">
           <h3>Novo Estilo Barbearia</h3>
           <p>Agendamento Online</p>
@@ -266,7 +291,7 @@ footer {
       </div>
 
       <div class="project-card">
-        <img src="https://image.thum.io/get/width/1200/crop/700/https://jhonatanjob95-star.github.io/Luiza-Gabriel/" alt="Prévia do site LuizaGabriel Calçados" loading="lazy">
+        <img src="https://image.thum.io/get/width/1200/crop/700/https://jhonatanjob95-star.github.io/Luiza-Gabriel/" alt="Prévia completa do site LuizaGabriel Calçados" loading="lazy" decoding="async">
         <div class="project-body">
           <h3>LuizaGabriel Calçados</h3>
           <p>Catálogo + Carrinho</p>
@@ -275,7 +300,7 @@ footer {
       </div>
 
       <div class="project-card">
-        <img src="https://image.thum.io/get/width/1200/crop/700/https://jhonatanjob95-star.github.io/seu-time-fc-v2/" alt="Prévia do site Seu Time F.C." loading="lazy">
+        <img src="https://image.thum.io/get/width/1200/crop/700/https://jhonatanjob95-star.github.io/seu-time-fc-v2/" alt="Prévia completa do site Seu Time F.C." loading="lazy" decoding="async">
         <div class="project-body">
           <h3>Seu Time F.C.</h3>
           <p>Site oficial do clube — Elenco e notícias</p>
@@ -336,11 +361,30 @@ footer {
   </div>
 </footer>
 
-<a href="https://wa.me/5511960687917?text=Ol%C3%A1%20Jhonatan%2C%20quero%20um%20site%20para%20o%20meu%20neg%C3%B3cio" class="whatsapp-float" target="_blank">
+<a href="https://wa.me/5511960687917?text=Ol%C3%A1%20Jhonatan%2C%20quero%20um%20site%20para%20o%20meu%20neg%C3%B3cio" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Conversar com Jhonatan pelo WhatsApp">
   <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
 <script>
+function toggleMenu() {
+  const menu = document.getElementById("menu-principal");
+  const botao = document.querySelector(".menu-toggle");
+  const aberto = menu.classList.toggle("open");
+  botao.setAttribute("aria-expanded", String(aberto));
+  botao.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
+  botao.textContent = aberto ? "×" : "☰";
+}
+
+document.querySelectorAll("#menu-principal a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("menu-principal").classList.remove("open");
+    const botao = document.querySelector(".menu-toggle");
+    botao.setAttribute("aria-expanded", "false");
+    botao.setAttribute("aria-label", "Abrir menu");
+    botao.textContent = "☰";
+  });
+});
+
 function calcular() {
   let preco = 690;
   const checks = document.querySelectorAll('.options input:checked');
