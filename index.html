@@ -233,8 +233,9 @@ footer {
       </div>
 
       <div class="result" id="result">
-        <div>Investimento estimado</div>
-        <div class="price" id="preco">R$ 1.490</div>
+        <div style="display:inline-block;background:#2a1d08;color:#f4c95d;padding:5px 14px;border:1px solid #8a6820;border-radius:30px;font-size:12px;font-weight:700;letter-spacing:1px;margin-bottom:8px;">🔥 OFERTA ESPECIAL</div>
+        <div>De <span style="color:#a0a0b0;text-decoration:line-through;">R$ 990,00</span> por</div>
+        <div class="price" id="preco">R$ 690,00</div>
         <div id="prazo" style="margin-top:6px;color:var(--muted);">Prazo: até 7 dias</div>
         <button class="btn" style="margin-top:16px;" onclick="pedirSite()">Quero esse site</button>
       </div>
@@ -342,7 +343,7 @@ footer {
 
 <script>
 function calcular() {
-  let preco = 990;
+  let preco = 690;
   const checks = document.querySelectorAll('.options input:checked');
   checks.forEach(c => {
     if (c.value.includes('Cardápio')) preco += 200;
@@ -350,7 +351,7 @@ function calcular() {
     if (c.value.includes('Carrinho')) preco += 450;
     if (c.value.includes('Página')) preco += 300;
   });
-  document.getElementById('preco').textContent = 'R$ ' + preco.toLocaleString('pt-BR');
+  document.getElementById('preco').textContent = 'R$ ' + preco.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
   document.getElementById('prazo').textContent = 'Prazo: até 7 dias';
 }
 
