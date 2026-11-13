@@ -300,8 +300,8 @@ footer {
       <div class="result" id="result">
         <div style="display:inline-block;background:#2a1d08;color:#f4c95d;padding:5px 14px;border:1px solid #8a6820;border-radius:30px;font-size:12px;font-weight:700;letter-spacing:1px;margin-bottom:8px;">🔥 OFERTA ESPECIAL</div>
         <div style="color:var(--muted);font-size:13px;">INVESTIMENTO ESTIMADO</div>
-        <div class="price" id="preco">R$ 690,00</div>
-        <div class="price-note">Valor inicial de R$ 690,00. Funcionalidades adicionais são somadas ao orçamento.</div>
+        <div class="price" id="preco">R$ 580,00</div>
+        <div class="price-note">Valor inicial de R$ 580,00. Funcionalidades adicionais são somadas ao orçamento.</div>
         <div style="margin-top:14px;padding:12px;background:#10251f;border:1px solid #28745c;border-radius:10px;">
           <div style="color:#7de0b5;font-size:12px;font-weight:700;letter-spacing:1px;">🌿 OFERTA DE MANUTENÇÃO MENSAL</div>
           <div style="margin-top:5px;">De <span style="color:#a0a0b0;text-decoration:line-through;">R$ 69,90</span> por <strong style="color:#7de0b5;font-size:22px;">R$ 49,90/mês</strong></div>
@@ -464,7 +464,7 @@ document.querySelectorAll("#menu-principal a").forEach(link => {
 });
 
 function calcular() {
-  let preco = 690;
+  let preco = 580;
   const checks = document.querySelectorAll('.options input:checked');
   checks.forEach(c => {
     if (c.value.includes('Cardápio')) preco += 200;
